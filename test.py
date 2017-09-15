@@ -30,4 +30,7 @@ print('Restam: '+str(chk.getproxycount()-(chk.getsucesscount()+chk.getfailcount(
 
 # Lista de Proxys
 print(chk.getproxylist())
+del prx
+del chk
+print('Classes eliminadas.')
 exit(0)

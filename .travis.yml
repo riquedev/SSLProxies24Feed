@@ -20,7 +20,6 @@ script:
   - codecov
   - python test.py
   - python setup.py hub_pip --DeployHubBdio=false
-  - bash <(curl -s https://copilot.blackducksoftware.com/bash/travis) ./build/blackduck/*.jsonld
 
 after_sucess:
   - codecov

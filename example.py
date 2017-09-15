@@ -39,5 +39,5 @@ while True:
     time.sleep(5)
 
     # Quando acabar...
-    if chk.proxycount() - (chk.getsucesscount() + chk.getfailcount()) == 0:
+    if chk.getproxycount() - (chk.getsucesscount() + chk.getfailcount()) == 0:
         break

@@ -55,3 +55,6 @@ print(chk.getproxylist())
 
 ##### Este projeto está sob licença **MIT**.
 ###### É isso pessoal, até a proxima 😆
+
+## Commits
+![Gráfico de Commits](https://codecov.io/gh/riquedev/SSLProxies24Feed/branch/master/graphs/commits.svg)

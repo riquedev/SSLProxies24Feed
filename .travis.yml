@@ -15,6 +15,8 @@ install:
 
 script:
   - coverage run test.py
+  - coverage xml -i
+  - codecov
   - python test.py
 
 after_sucess:

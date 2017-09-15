@@ -15,4 +15,4 @@ script:
   - python test.py
 
 after_sucess:
-  - codecov -t 2b50f40b-b4de-44b1-8e28-b8eafa664792
+  - codecov

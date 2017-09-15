@@ -19,10 +19,12 @@ class Feed:
     COUNT = 0
 
     # Remove caracteres desnecessários para identificação da Tag
+    @classmethod
     def __cleartag(self):
         return str(self.elemen.tag[str(self.elemen.tag).index('}') + 1:]).strip()
 
     # Pega tudo que tiver formato de Proxy dentro do HTML. [IP:PORT]
+    @classmethod
     def __clearhtml(self, content):
         return re.findall('\d+\.\d+\.\d+\.\d+\:\d+', content)
 

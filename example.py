@@ -3,11 +3,12 @@
 
 # Autor: rique_dev (rique_dev@hotmail.com)
 
-from SSLProxies24.Feed import Feed
-from SSLProxies24.Check import CheckProxy
-import time
-import os
 import gc
+import os
+import time
+
+from SSLProxies24.Check import CheckProxy
+from SSLProxies24.Feed import Feed
 
 # Recupera a listagem
 prx = Feed().PROXY_LIST
@@ -30,10 +31,10 @@ while True:
         print('O Garbage Collector está ativo!')
 
     # Contagem
-    print('Sucesso: '+str(chk.getsucesscount()))
-    print('Falhas: '+str(chk.getfailcount()))
-    print('Total de Proxys: '+str(chk.getproxycount()))
-    print('Restam: '+str(chk.getproxycount()-(chk.getsucesscount()+chk.getfailcount())))
+    print('Sucesso: ' + str(chk.getsucesscount()))
+    print('Falhas: ' + str(chk.getfailcount()))
+    print('Total de Proxys: ' + str(chk.getproxycount()))
+    print('Restam: ' + str(chk.getproxycount() - (chk.getsucesscount() + chk.getfailcount())))
 
     # Lista de Proxys
     print(chk.getproxylist())
@@ -42,5 +43,5 @@ while True:
     time.sleep(5)
 
     # Quando acabar...
-    if chk.proxycount()-(chk.getsucesscount()+chk.getfailcount()) == 0:
+    if chk.proxycount() - (chk.getsucesscount() + chk.getfailcount()) == 0:
         break

@@ -6,8 +6,6 @@
 import gc
 import threading
 import time
-
-import airbrake
 import requests
 
 
@@ -37,7 +35,6 @@ class CheckProxy:
     def __init__(self):
         # Ativa o Garbage Collector
         gc.enable()
-        self.logger = airbrake.getLogger(api_key="32d24c0344a8d7182769ce6355c1cbbb", project_id=156549)
 
     # Valida a lista de proxys passados
 

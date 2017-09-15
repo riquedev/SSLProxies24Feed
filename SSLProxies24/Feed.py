@@ -5,8 +5,6 @@
 
 import gc
 import re
-
-import airbrake
 import requests
 from defusedxml import ElementTree
 
@@ -34,8 +32,6 @@ class Feed:
         gc.enable()
         # Lista temporária
         tmpList = []
-
-        self.logger = airbrake.getLogger(api_key="32d24c0344a8d7182769ce6355c1cbbb", project_id=156549)
 
         # Requisição   (stream)
         self.response = requests.get(self.__URL, stream=True)

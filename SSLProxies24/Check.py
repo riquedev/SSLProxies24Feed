@@ -7,6 +7,7 @@ import gc
 import threading
 import time
 
+import airbrake
 import requests
 
 
@@ -36,6 +37,7 @@ class CheckProxy:
     def __init__(self):
         # Ativa o Garbage Collector
         gc.enable()
+        self.logger = airbrake.getLogger(api_key="32d24c0344a8d7182769ce6355c1cbbb", project_id=156549)
 
     # Valida a lista de proxys passados
 
@@ -67,10 +69,11 @@ class CheckProxy:
                 r = requests.get('https://www.youtube.com/', proxies=prx, timeout=self.__timeout,
                                  headers={'Cache-Control': 'no-cache'})
                 r.close()
-            except Exception:
+            except Exception as e:
                 self.__fail += 1
                 # Aguarda um tempo para tentar uma nova conexão
                 time.sleep(self.__sleeptime)
+                self.logger.exception(str(e))
                 continue
             else:
                 self.__sucess += 1

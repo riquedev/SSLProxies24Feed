@@ -3,11 +3,11 @@
 
 # Autor: rique_dev (rique_dev@hotmail.com)
 
+import gc
 import threading
 import time
 
 import requests
-import gc
 
 
 class CheckProxy:
@@ -79,21 +79,24 @@ class CheckProxy:
             else:
                 self.__sucess += 1
                 self.__goodList.append(proxy)
-                #print('Proxy ' + proxy + ' foi aceito.')
+                # print('Proxy ' + proxy + ' foi aceito.')
 
         self.__count = len(self.__goodList)
 
     def join(self):
         self.th.join()
 
-    def getproxylist(self)-> list:
+    def setdaemon(self, val: bool = True):
+        self.th.daemon = val
+
+    def getproxylist(self) -> list:
         return self.__goodList
 
-    def getsucesscount(self)-> int:
+    def getsucesscount(self) -> int:
         return self.__sucess
 
-    def getfailcount(self)-> int:
+    def getfailcount(self) -> int:
         return self.__fail
 
-    def getproxycount(self)-> int:
+    def getproxycount(self) -> int:
         return len(self.__proxylist)

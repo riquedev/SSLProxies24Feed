@@ -5,6 +5,7 @@
 
 import gc
 import re
+
 import requests
 from defusedxml import ElementTree
 
@@ -35,7 +36,6 @@ class Feed:
 
         # Requisição   (stream)
         self.response = requests.get(self.__URL, stream=True)
-
 
         # GZip, Deflate.
         self.response.raw.decode_content = True

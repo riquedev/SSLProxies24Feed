@@ -8,6 +8,11 @@ cache: pip
 install:
   - pip install requests
   - pip install defusedxml
+  - pip install codecov
 
 script:
+  - coverage run test.py
   - python test.py
+
+after_sucess:
+  - codecov

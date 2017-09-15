@@ -67,7 +67,7 @@ class CheckProxy:
                 r = requests.get('http://www.whatismyproxy.com/', proxies=prx, timeout=self.__timeout,
                                  headers={'Cache-Control': 'no-cache'})
                 r.close()
-            except:
+            except Exception:
                 self.__fail += 1
                 # Aguarda um tempo para tentar uma nova conexão
                 time.sleep(self.__sleeptime)

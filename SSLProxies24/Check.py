@@ -64,7 +64,7 @@ class CheckProxy:
             prx = {'http': 'http://' + proxy, 'https': 'https://' + proxy}
             try:
                 # Tenta conexão
-                r = requests.get('http://www.whatismyproxy.com/', proxies=prx, timeout=self.__timeout,
+                r = requests.get('https://www.youtube.com/', proxies=prx, timeout=self.__timeout,
                                  headers={'Cache-Control': 'no-cache'})
                 r.close()
             except Exception:

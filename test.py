@@ -30,4 +30,4 @@ print('Restam: '+str(chk.getproxycount()-(chk.getsucesscount()+chk.getfailcount(
 
 # Lista de Proxys
 print(chk.getproxylist())
-
+exit(0)

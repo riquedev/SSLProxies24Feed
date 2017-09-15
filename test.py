@@ -17,9 +17,6 @@ chk = CheckProxy()
 # Começa validação
 chk.validatelist(prx)
 
-# Seta daemon
-chk.setdaemon(True)
-
 # Ativa garbage
 gc.enable()
 

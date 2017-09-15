@@ -37,11 +37,9 @@ class CheckProxy:
         # Ativa o Garbage Collector
         gc.enable()
 
-    '''
-    Valida a lista de proxys passados
-    '''
+    # Valida a lista de proxys passados
 
-    def validatelist(self, proxyList: list = [], timeout: int = 15, sleeptime: int = 5):
+    def validatelist(self, proxyList: list, timeout: int = 15, sleeptime: int = 5):
         # Listagem de Proxys
         self.__proxylist = proxyList
 
@@ -52,12 +50,10 @@ class CheckProxy:
         self.__sleeptime = sleeptime
 
         # Thread de validação
-        self.th = threading.Thread(target=self.__validate)
+        self.th = threading.Thread(target=self.__validate, daemon=True)
         self.th.start()
 
-    '''
-    Validação da listagem (Thread)
-    '''
+    # Validação da listagem (Thread)
 
     def __validate(self):
 
@@ -71,7 +67,7 @@ class CheckProxy:
                 r = requests.get('http://www.whatismyproxy.com/', proxies=prx, timeout=self.__timeout,
                                  headers={'Cache-Control': 'no-cache'})
                 r.close()
-            except Exception as e:
+            except:
                 self.__fail += 1
                 # Aguarda um tempo para tentar uma nova conexão
                 time.sleep(self.__sleeptime)
@@ -85,9 +81,6 @@ class CheckProxy:
 
     def join(self):
         self.th.join()
-
-    def setdaemon(self, val: bool = True):
-        self.th.daemon = val
 
     def getproxylist(self) -> list:
         return self.__goodList

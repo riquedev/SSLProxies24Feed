@@ -7,5 +7,10 @@ python:
   - "3.6"
   - "nightly"
 
+cache: pip
+
+install:
+  - pip install requests
+
 script:
   - python test.py

@@ -12,15 +12,16 @@ install:
   - pip install requests
   - pip install defusedxml
   - pip install codecov
+  - pip install hub-pip==1.1.0
+  - python setup.py hub_pip --DeployHubBdio=false
+  - bash <(curl -s https://copilot.blackducksoftware.com/bash/travis) ./build/blackduck/*.jsonld
 
 script:
   - coverage run test.py
   - coverage xml -i
   - codecov
+
   - python test.py
 
 after_sucess:
   - codecov
-  - pip install hub-pip==1.1.0
-  - python setup.py hub_pip --DeployHubBdio=false
-  - bash <(curl -s https://copilot.blackducksoftware.com/bash/travis) ./build/blackduck/*.jsonld

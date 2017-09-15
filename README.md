@@ -11,7 +11,7 @@ SSL Proxies é um site onde é postado diariamente uma listagem de Proxys para s
 > O que define um Proxy como válido? Bem, se a requisição feita com ele obteve sucesso. (dãh)
 
 #### Requisitos:
-* Python 3.x
+* Python >=3.6
 * Conexão com Internet moderada. (a velocidade de sua conexão influência na avaliação do Proxy)
 
 #### Como Utilizar

@@ -69,11 +69,10 @@ class CheckProxy:
                 r = requests.get('https://www.youtube.com/', proxies=prx, timeout=self.__timeout,
                                  headers={'Cache-Control': 'no-cache'})
                 r.close()
-            except Exception as e:
+            except Exception:
                 self.__fail += 1
                 # Aguarda um tempo para tentar uma nova conexão
                 time.sleep(self.__sleeptime)
-                self.logger.exception(str(e))
                 continue
             else:
                 self.__sucess += 1

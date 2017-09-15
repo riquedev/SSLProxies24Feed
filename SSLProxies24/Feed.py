@@ -38,11 +38,8 @@ class Feed:
         self.logger = airbrake.getLogger(api_key="32d24c0344a8d7182769ce6355c1cbbb", project_id=156549)
 
         # Requisição   (stream)
-        try:
-            self.response = requests.get(self.__URL, stream=True)
-        except Exception as e:
-            self.logger.exception(str(e))
-            exit(1)
+        self.response = requests.get(self.__URL, stream=True)
+
 
         # GZip, Deflate.
         self.response.raw.decode_content = True

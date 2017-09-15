@@ -8,6 +8,7 @@ cache: pip
 install:
   - pip install requests
   - pip install defusedxml
+  - pip install airbrake
 
 script:
   - python test.py

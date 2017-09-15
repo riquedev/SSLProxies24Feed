@@ -4,7 +4,6 @@
 # Autor: rique_dev (rique_dev@hotmail.com)
 
 import gc
-import os
 import time
 
 from SSLProxies24.Check import CheckProxy
@@ -22,9 +21,6 @@ chk.validatelist(prx)
 # Ativa garbage
 gc.enable()
 while True:
-
-    # Limpa tela
-    os.system('cls || clear')
 
     # Garbage
     if gc.isenabled():

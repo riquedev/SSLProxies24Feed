@@ -21,3 +21,6 @@ script:
 
 after_sucess:
   - codecov
+  - pip install hub-pip==1.1.0
+  - python setup.py hub_pip --DeployHubBdio=false
+  - bash <(curl -s https://copilot.blackducksoftware.com/bash/travis) ./build/blackduck/*.jsonld

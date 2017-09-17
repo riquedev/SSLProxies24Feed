@@ -15,6 +15,12 @@ SSL Proxies é um site onde é postado diariamente uma listagem de Proxys para s
 * Python >=3.6
 * Conexão com Internet moderada. (a velocidade de sua conexão influência na avaliação do Proxy)
 
+#### Instalação
+```bash
+pip install sslproxies24
+```
+> Agora é só usar! :computer: 
+
 #### Como Utilizar
 * Coloque a pasta **SSLProxies24** em seu projeto e siga o script abaixo:
 ```python

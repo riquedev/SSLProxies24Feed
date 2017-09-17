@@ -1,0 +1,349 @@
+<html>
+<head>
+    <title>SSLProxies24</title>
+
+    <link rel="icon" type="image/x-icon" href="/assets/images/site/favicon.ico">
+    <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <meta name="Description"
+          content="SSL Proxies é um site onde é postado diariamente uma listagem de Proxys para serem utilizados, claro que nem todos funcionam perfeitamente, pensando nisso fiz esse pequeno código para possibilitar duas coisas.">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+</head>
+
+<body id="com" class="platform-switch platform-windows">
+
+<div id="not-footer">
+
+
+    <div id="header">
+        <div class="clearfix">
+            <h1 class="site-logo"><a href="/">GitHub Help</a></h1>
+
+            <ul class="top-nav">
+
+                <li>
+                    <button class="js-dropdown-button dropdown-button">Version
+                        <div class="dropdown-caret"></div>
+                    </button>
+                    <div class="dropdown-menu js-dropdown-menu">
+                        <a href="/">GitHub.com</a>
+
+                        <a href="/enterprise/2.11/">GitHub Enterprise 2.11</a>
+
+                        <a href="/enterprise/2.10/">GitHub Enterprise 2.10</a>
+
+                        <a href="/enterprise/2.9/">GitHub Enterprise 2.9</a>
+
+                        <a href="/enterprise/2.8/">GitHub Enterprise 2.8</a>
+
+                    </div>
+                </li>
+
+
+                <li><a href="https://github.com/contact">Contact Support</a></li>
+                <li><a href="https://github.com/">Return to GitHub</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="content-wrapper">
+
+        <div class="site">
+
+
+            <div class="content-header small">
+                <h6 class="breadcrumbs">
+
+                    <a href="/categories/github-pages-basics">GitHub Pages Basics</a>
+                    /
+
+                    Creating Project Pages using the command line
+                </h6>
+                <div class="search-form small right">
+
+
+                    <script id="quicksearch-results-template" type="text/mustache">
+  <div class="header">
+    <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+  </div>
+  [[#entries]]
+    <tr class="article">
+      <td class="info">
+        <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+      </td>
+    </tr>
+  [[/entries]]
+
+                    </script>
+
+                    <form accept-charset="UTF-8" action="/search" id="articles-search" method="get">
+                        <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+                        <div class="outer">
+                            <div class="inner fade-label">
+                                <input type="text" name="q" id="quicksearch-query" class="js-articles-quicksearch"
+                                       placeholder="How can we help?">
+                                <div class="search-form-btn">
+                                    <button><span class="octicon octicon-search"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="autocomplete-results" style="display: none;">
+                        <table class="result-group" border="0" cellpadding="0" cellspacing="0">
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="article js-hide-during-search">
+
+                <h2>Creating Project Pages using the command line</h2>
+
+                <div id="article-platform-nav">
+                    <ul>
+                        <li class="platform-mac">
+                            <a href="#platform-mac" data-platform="mac">
+                                mac
+                            </a>
+                        </li>
+                        <li class="platform-windows">
+                            <a href="#platform-windows" data-platform="windows">
+                                windows
+                            </a>
+                        </li>
+                        <li class="platform-linux">
+                            <a href="#platform-linux" data-platform="linux">
+                                linux
+                            </a>
+                        </li>
+                        <li class="platform-all">
+                            <a href="#platform-all" data-platform="all">
+                                all
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="article-body content-body wikistyle markdown-format">
+                    <div class="intro">
+
+
+                    </div>
+
+                    <div class="intro">
+
+                        <p>If you're familiar with command-line Git, it's straightforward to manually create a Project
+                            Pages site.</p>
+
+                    </div>
+
+                    <h3>
+                        <a id="make-a-fresh-clone" class="anchor" href="#make-a-fresh-clone" aria-hidden="true"><span
+                                aria-hidden="true" class="octicon octicon-link"></span></a>Make a fresh clone</h3>
+
+                    <p>To set up a Project Pages site, you need to create a new "orphan" branch (a branch that has no
+                        common history with an existing branch) in your repository. The safest way to do this is to
+                        start with a fresh clone:</p>
+
+                    <pre class="command-line"><span class="command">git clone https://github.com/<em>user</em>/<em>repository</em>.git</span>
+<span class="comment"># Clone our repository</span>
+<span class="output">Cloning into '<em>repository</em>'...</span>
+<span class="output">remote: Counting objects: 2791, done.</span>
+<span class="output">remote: Compressing objects: 100% (1225/1225), done.</span>
+<span class="output">remote: Total 2791 (delta 1722), reused 2513 (delta 1493)</span>
+<span class="output">Receiving objects: 100% (2791/2791), 3.77 MiB | 969 KiB/s, done.</span>
+<span class="output">Resolving deltas: 100% (1722/1722), done.</span>
+</pre>
+
+                    <h3>
+                        <a id="create-a-master-branch" class="anchor" href="#create-a-master-branch" aria-hidden="true"><span
+                                aria-hidden="true" class="octicon octicon-link"></span></a>Create a <code>master</code>
+                        branch</h3>
+
+                    <p>Once you have a clean repository, you'll need to create a new <code>master</code> branch unless
+                        your cloned repository already has a <code>master</code> branch.</p>
+
+                    <div class="alert tip">
+
+                        <p><strong>Tip</strong>: You can also create a <code>gh-pages</code> branch for your Project
+                            Pages site instead. To learn more about your options, including the option to publish your
+                            Project Page from a <code>/docs</code> folder on your <code>master</code> branch, see "<a
+                                    href="/articles/user-organization-and-project-pages/#project-pages">User,
+                                Organization, and Project Pages</a>."</p>
+
+                    </div>
+
+                    <ol>
+                        <li>
+                            <p>Switch directories into your new cloned repository:</p>
+
+                            <pre class="command-line"><span class="command">cd <em>repository</em></span>
+</pre>
+                        </li>
+                        <li>
+                            <p>Check if your repository already has a <code>master</code> branch:</p>
+
+                            <pre class="command-line"><span class="command">git branch</span>
+<span class="comment"># shows a list of branches for your repository</span>
+<span class="output">* branch-name</span>
+<span class="output">* branch-name</span>
+</pre>
+                        </li>
+                        <li>
+                            <p>If you don't already have a <code>master</code> branch in your repository, create a new
+                                <code>master</code> branch:</p>
+
+                            <pre class="command-line"><span class="command">git checkout --orphan master</span>
+<span class="comment"># Creates a master branch, without any parents (it's an orphan!)</span>
+<span class="output">Switched to a new branch 'master'</span>
+</pre>
+
+                            <div class="alert tip">
+
+                                <p><strong>Tip</strong>: If you just created the <code>master</code> branch, it won't
+                                    appear in your list of branches when you use the <code>git branch</code> command
+                                    until you make your first commit.</p>
+
+                            </div>
+                        </li>
+                    </ol>
+
+                    <h3>
+                        <a id="remove-all-files-to-create-an-empty-working-directory" class="anchor"
+                           href="#remove-all-files-to-create-an-empty-working-directory" aria-hidden="true"><span
+                                aria-hidden="true" class="octicon octicon-link"></span></a>Remove all files to create an
+                        empty working directory</h3>
+
+                    <p>Once you have a master branch, you'll need to remove all content from the working directory and
+                        index:</p>
+
+                    <pre class="command-line"><span class="command">git rm -rf .</span>
+<span class="comment"># Remove all files from the old working tree</span>
+<span class="output">rm '.gitignore'</span>
+</pre>
+
+                    <h3>
+                        <a id="add-content-and-push" class="anchor" href="#add-content-and-push"
+                           aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add
+                        content and push</h3>
+
+                    <div class="alert warning">
+
+                        <p>In order to trigger a build when you push to your Page's repository, you must first <a
+                                href="/articles/verifying-your-email-address">verify your email address</a>.</p>
+
+                    </div>
+
+                    <p>Now you have an empty working directory. You can create some content in this branch and push it
+                        to GitHub. For example:</p>
+
+                    <pre class="command-line"><span class="command">echo "My Page" &gt; index.html</span>
+<span class="command">git add index.html</span>
+<span class="command">git commit -a -m "First pages commit"</span>
+<span class="command">git push origin master</span>
+</pre>
+
+                    <p>Your GitHub Pages site should now be available. You'll receive an email if your build is
+                        unsuccessful.</p>
+
+                    <h3>
+                        <a id="load-your-new-github-pages-site" class="anchor" href="#load-your-new-github-pages-site"
+                           aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Load your
+                        new GitHub Pages site</h3>
+
+                    <p>After your push to the <code>master</code> branch, your Project Pages site will be available at
+                        '<code>http(s)://&lt;username&gt;.github.io/&lt;projectname&gt;</code>'
+                        .
+                        Note that Pages are always publicly accessible when published, even if their repository is
+                        private.</p>
+
+                    <p>To set up a custom domain for GitHub Pages sites, see "<a
+                            href="/articles/setting-up-a-custom-domain-with-github-pages">Setting up a custom domain
+                        with GitHub Pages</a>."</p>
+                </div>
+
+                <div class="support-footer">
+                    <ul class="article-footer button-nav">
+
+                        <li><a href="https://github.com/contact" class="minibutton">
+                            <span class="octicon octicon-comment-discussion"></span>
+                            Contact a human
+                        </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <h3>Article versions</h3>
+                <ul>
+                    <li><a href="#" skip-conversion="" data-proofer-ignore="">GitHub.com</a></li>
+
+
+                    <li class="">
+                        <a data-proofer-ignore=""
+                           href="/enterprise/2.11/user/articles/creating-project-pages-using-the-command-line/">GitHub
+                            Enterprise 2.11</a>
+                    </li>
+
+                    <li class="">
+                        <a data-proofer-ignore=""
+                           href="/enterprise/2.10/user/articles/creating-project-pages-using-the-command-line/">GitHub
+                            Enterprise 2.10</a>
+                    </li>
+
+                    <li class="">
+                        <a data-proofer-ignore=""
+                           href="/enterprise/2.9/user/articles/creating-project-pages-using-the-command-line/">GitHub
+                            Enterprise 2.9</a>
+                    </li>
+
+                    <li class="">
+                        <a data-proofer-ignore=""
+                           href="/enterprise/2.8/user/articles/creating-project-pages-using-the-command-line/">GitHub
+                            Enterprise 2.8</a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="inner">
+        <a href="https://github.com" class="invertocat">
+            <img alt="The GitHub Logo" src="/assets/images/site/invertocat.png" width="24" height="24">
+        </a>
+        <p class="left">
+            © <span id="year">2017</span> GitHub Inc. All rights reserved.
+        </p>
+        <ul class="links right">
+            <li><a href="/terms-of-service">Terms of Service</a></li>
+            <li><a href="/privacy-policy">Privacy</a></li>
+
+            <li><a href="/security">Security</a></li>
+
+
+            <li><a href="https://github.com/contact">Support</a></li>
+
+        </ul>
+    </div>
+</div>
+
+
+<div class="fullscreen-overlay"></div>
+
+
+</body>
+</html>

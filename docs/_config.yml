@@ -1,1 +1,4 @@
 theme: jekyll-theme-minimal
+title: SSLProxies24
+description: SSL Proxies é um site onde é postado diariamente uma listagem de Proxys para serem utilizados, claro que nem todos funcionam perfeitamente, pensando nisso fiz esse pequeno código para possibilitar duas coisas.
+show_downloads: true

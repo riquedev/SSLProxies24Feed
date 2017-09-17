@@ -19,41 +19,7 @@ SSL Proxies é um site onde é postado diariamente uma listagem de Proxys para s
 pip install sslproxies24
 ```
 > Agora é só usar! :computer:
-
-#### Como Utilizar
-* Coloque a pasta **SSLProxies24** em seu projeto e siga o script abaixo:
-```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-# Autor: rique_dev (rique_dev@hotmail.com)
-
-from SSLProxies24.Feed import Feed
-from SSLProxies24.Check import CheckProxy
-
-# Recupera a listagem
-prx = Feed().PROXY_LIST
-
-# Inicia classe
-chk = CheckProxy()
-
-# Começa validação
-chk.validatelist(prx)
-
-# A partir de agora os Proxys já estão sendo validados dentro de uma Thread, para obter os dados você poderá utilizar:
-
-# Contagem de sucesso:
-print(str(chk.getsucesscount()))
-
-# Contagem de Falhas:
-print(str(chk.getfailcount())))
-
-# Total de Proxys (geral)
-print(str(chk.getproxycount()))
-
-# Listagem de Proxys já avaliados e liberados com sucesso
-print(chk.getproxylist())
-```
+> Tutorial em: [https://github.com/riquedev/SSLProxies24Feed](https://github.com/riquedev/SSLProxies24Feed#como-utilizar)
 
 ### Agradecimentos
 [SSL Proxies](http://www.sslproxies24.top/) por disponibilizar o serviço e o Feed.

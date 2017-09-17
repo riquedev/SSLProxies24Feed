@@ -1,6 +1,6 @@
-import pypandoc
-from setuptools import setup
 from os import path
+
+from setuptools import setup
 
 here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README'), encoding='utf-8') as f:

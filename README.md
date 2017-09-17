@@ -19,7 +19,7 @@ SSL Proxies é um site onde é postado diariamente uma listagem de Proxys para s
 ```bash
 pip install sslproxies24
 ```
-> Agora é só usar! :computer: 
+> Agora é só usar! :computer:
 
 #### Como Utilizar
 * Coloque a pasta **SSLProxies24** em seu projeto e siga o script abaixo:

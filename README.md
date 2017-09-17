@@ -23,6 +23,8 @@ pip install sslproxies24
 
 #### Como Utilizar
 * Coloque a pasta **SSLProxies24** em seu projeto e siga o script abaixo:
+> **Atenção**: A pasta só é necessária se você fez download do pacote compactado, se utilizou **pip** basta importar.
+
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
